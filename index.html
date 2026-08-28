@@ -4,7 +4,140 @@
 <head>
   <title>CS4241 Assignment 1</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
+body {
+    background: linear-gradient(#414752, #B3B5BA);
+    height: 100vh;
+    margin: 2%;
+}
+
+h1 {
+    color: #DCE3E3;
+    text-align: left;
+    font-family: 'Unica One', cursive;
+    font-size: 3em;
+}
+
+h2 {
+    color: #DCE3E3;
+    text-align: left;
+    font-family: 'Unica One', cursive;
+    font-size: 1.4em;
+}
+
+.subtitle {
+    margin-top: -1.2%;
+}
+
+.subheading {
+    margin-top: 2%;
+}
+
+.personal-info {
+    background-color: #8868D6;
+    box-shadow: 10px 10px 0px #4B3976;
+    border-color: #C4BFAE;
+    border-style: solid;
+    border-width: 2px;
+    width: 31%;
+    height: 12%;
+    padding: 0%;
+    text-align: left;
+    font-family: 'Unica One', cursive;
+    font-size: 1.2em;
+    margin-top: 0%;
+}
+
+.experience {
+    display: inline-block;
+    vertical-align: top;
+    background-color: #D6718C;
+    box-shadow: 10px 10px 0px #763E4D;
+    border-color: #C4BFAE;
+    border-style: solid;
+    border-width: 2px;
+    width: 31%;
+    min-height: 50%;
+    text-align: left;
+    font-family: 'Unica One', cursive;
+    font-size: 1.2em;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+.languages {
+    display: inline-block;
+    vertical-align: top;
+    width: 31%;
+    position: relative;
+    top: 0;
+    left: 600px;
+    margin-left: 2%;
+    background-color: #D6718C;
+    box-shadow: 10px 10px 0px #763E4D;
+    border-color: #C4BFAE;
+    border-style: solid;
+    border-width: 2px;
+    width: 31%;
+    height: 30%;
+    text-align: left;
+    font-family: 'Unica One', cursive;
+    font-size: 1.2em;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+.personal-info,
+.experience {
+    position: relative;
+    left: -600px;
+}
+
+.disc-image {
+    height: 15%;
+    border-color: #C4BFAE;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: #4B3976 10px 10px 0px;
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-top: 5%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #C4BFAE;
+}
+
+th,
+td {
+    border: 1px solid #C4BFAE;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    color: #FFFFFF;
+    font-family: 'Unica One', cursive;
+}
+
+th {
+    font-size: 1.1em;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-family: 'Lucida Console', "Courier New";
+    padding: 1rem 1rem;
+}
+  </style>>
 </head>
 <script src="animation.js"></script>
 
@@ -85,6 +218,44 @@
       <li>JavaScript: Good amount of experience, less comfortable than the others but still capable</li>
     </ul>
   </div>
+
+  <script>
+    function slideRight(id, delay) {
+  let pos = -600;
+  const elem = document.getElementById(id);
+  let intervalId = setInterval(frame, 1);
+
+  function frame() {
+    if (pos >= 0) {
+      clearInterval(intervalId);
+    } else {
+      pos += 3;
+      elem.style.left = pos + 'px';
+    }
+  }
+}
+
+function slideLeft(id, delay) {
+  let pos = 600;
+  const elem = document.getElementById(id);
+  let intervalId = setInterval(frame, 1);
+
+  function frame() {
+    if (pos <= 0) {
+      clearInterval(intervalId);
+    } else {
+      pos -= 3;
+      elem.style.left = pos + 'px';
+    }
+  }
+}
+
+window.onload = function () {
+  slideRight("personal-info");
+  slideRight("experience");
+  slideLeft("languages");
+};
+  </script>
 
 
 </body>
